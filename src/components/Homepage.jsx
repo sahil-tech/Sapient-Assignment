@@ -34,8 +34,8 @@ class Homepage extends Component {
                 })
         }
     }
-    setLaunchYear(x) {
-        this.setState({ launchYear: x })
+    setLaunchYear(year) {
+        this.setState({ launchYear: year })
     }
     setisLaunchSuccess (isLaunchSuccess)  {
         this.setState({ isLaunchSuccess: isLaunchSuccess })
@@ -51,7 +51,7 @@ class Homepage extends Component {
                             <h3>filters</h3>
                             <div>
                                 <p className="text-center mb-1 borderBottom">Launch Years</p>
-                                {this.state.years.map(x => <button className="btn btn-success offset-1 col-4 col-lg-10 col-xl-4 my-2" onClick={() => this.setLaunchYear(x)}>{year}</button>)}
+                                {this.state.years.map(year => <button className="btn btn-success offset-1 col-4 col-lg-10 col-xl-4 my-2" onClick={() => this.setLaunchYear(year)}>{year}</button>)}
                             </div>
                             <div>
                                 <p className="text-center mt-3 mb-1 borderBottom">Successfull Launch</p>
@@ -64,7 +64,7 @@ class Homepage extends Component {
                         {this.state.arr.length ? this.state.arr && this.state.arr.map(data => <div className="cardWidth my-3 text-center">
                             <Card data={data} />
                         </div>) :
-                            <h3>No Data To Show</h3>
+                            <h3>{`No Data To Show for year:${this.state.launchYear} and success launch: ${this.state.isLaunchSuccess}`}</h3>
                         }
                     </div>
                 </div>
